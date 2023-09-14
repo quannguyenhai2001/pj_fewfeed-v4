@@ -178,7 +178,7 @@ const OneCardFeatureScreen = () => {
                                         </Box>
                                     </Box>
                                     <Box className={classes.boxID}>
-                                        <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+                                        <Button component="label" size='small' sx={{ minWidth: "100%" }} variant="contained" startIcon={<CloudUploadIcon />}>
                                             Upload file
                                             <VisuallyHiddenInput type="file" />
                                         </Button>
