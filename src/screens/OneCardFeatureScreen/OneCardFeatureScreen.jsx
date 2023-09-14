@@ -16,7 +16,8 @@ const initialValues = {
     title: '',
     websiteUrl: '',
     fakeLink: '',
-    fakeLinkDescription: ''
+    fakeLinkDescription: '',
+    image: ""
 };
 
 const VisuallyHiddenInput = styled('input')({
@@ -36,6 +37,8 @@ const OneCardFeatureScreen = () => {
 
     const handleSubmit = (values) => {
         console.log(values)
+        const imagePath = values.image ? URL.createObjectURL(values.image) : '';
+        console.log(imagePath);
     };
     return (
         <Box sx={{ minHeight: "100vh" }}>
@@ -44,7 +47,7 @@ const OneCardFeatureScreen = () => {
                     initialValues={initialValues}
                     onSubmit={handleSubmit}
                 >
-                    {({ errors, touched }) => (
+                    {({ errors, touched, values, setFieldValue }) => (
                         <Form>
                             <Grid container spacing={20} pt="2rem">
                                 <Grid item xs={12} sm={4}>
@@ -133,7 +136,7 @@ const OneCardFeatureScreen = () => {
                                 </Grid>
                                 <Grid item xs={12} sm={8}>
                                     <Box className={classes.boxID}>
-                                        <PreviewBox />
+                                        <PreviewBox values={values} />
                                     </Box>
                                     <Box className={classes.boxID}>
                                         <Box mb="1.5rem">
@@ -178,10 +181,29 @@ const OneCardFeatureScreen = () => {
                                         </Box>
                                     </Box>
                                     <Box className={classes.boxID}>
-                                        <Button component="label" size='small' sx={{ minWidth: "100%" }} variant="contained" startIcon={<CloudUploadIcon />}>
-                                            Upload file
-                                            <VisuallyHiddenInput type="file" />
-                                        </Button>
+                                        <input
+                                            id="image"
+                                            name="image"
+                                            type="file"
+                                            onChange={(event) => {
+                                                setFieldValue('image', event.currentTarget.files[0]);
+                                            }}
+                                            style={{ display: 'none' }}
+                                        />
+                                        <label htmlFor="image">
+                                            <Button
+                                                component="span"
+                                                size="small"
+                                                sx={{ minWidth: "100%" }}
+                                                variant="contained"
+                                                startIcon={<CloudUploadIcon />}
+                                            >
+                                                Upload file
+                                            </Button>
+                                        </label>
+
+
+
                                     </Box>
                                 </Grid>
                             </Grid>
