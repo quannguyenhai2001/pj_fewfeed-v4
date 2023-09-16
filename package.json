@@ -35,6 +35,7 @@
     "react-social-login": "^3.4.17",
     "react-social-login-buttons": "^3.9.1",
     "react-toastify": "^9.1.2",
+    "reactjs-social-login": "^2.6.3",
     "redux-deep-persist": "^1.0.7",
     "redux-persist": "^6.0.0",
     "sass": "^1.61.0",
