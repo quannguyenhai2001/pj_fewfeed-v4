@@ -24,7 +24,7 @@ const LoginScreen = () => {
     return (
         <div>
             <LoginSocialFacebook
-             appId="688235963207583"
+             appId="977479643325715"
              onResolve={(response) => {
                console.log(response);
              }}
