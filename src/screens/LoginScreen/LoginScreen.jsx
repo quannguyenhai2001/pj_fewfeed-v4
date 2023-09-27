@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 // import FacebookLogin from 'react-facebook-login';
-import {LoginSocialFacebook} from 'reactjs-social-login'
+import { LoginSocialFacebook } from 'reactjs-social-login'
 import { FacebookLoginButton } from 'react-social-login-buttons';
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ const LoginScreen = () => {
 
     useEffect(() => {
         const fetch = async () => {
-            axios.get("https://graph.facebook.com/2060605517611588/accounts?fields=name,access_token&access_token=EAAJx8mwbz58BOZBvZBwjvlM16B1NdSTqbrZClYxeOo7GJZA0tXahMDapmrlTmRxZAHXEhCbVBj41vpLGL4zoGWdlooA2W2ID5L3MnCv9Moq2iU97n6g04ezEV1pgASVJBhYhZBQ8Rv7cbmg7QlBv1PCYVGe4qYUFwDhdVyHbpW8bA5nFY2rZA4aMy9ZBZBqKtjio4o3yitz3EaXNsxZAZAypZBWYI8JLVH0dRO9ZBKIgFTIx9RmQZD")
+            axios.post("https://graph.facebook.com/132958139894524/feed?message=vfgfgfgf&access_token=EAADZAugTc54UBOZCbq8YhdZAiOVFlmw3XhRTrZBA0vY4JYklaG1RPVRZCzXVfGbSN2pGRsgW3PEneN5AGFed1sdMTiwqCFZBNNvYZA0ILogjUtrON20CbMWqT8bb8H1RpEuA2pl5ZC3qZCdefLQC17bPwB6SMQeWCeX53KH0vRR7WCC5xJunNS391S0y1wznk5YvNQM9bChuLiDCDL0jzlh4E8ztNPqfh1AhW3FTqJfcZD")
                 .then(response => {
                     console.log('Bài viết đã được đăng:', response.data);
                 })
@@ -24,15 +24,15 @@ const LoginScreen = () => {
     return (
         <div>
             <LoginSocialFacebook
-             appId="688235963207583"
-             onResolve={(response) => {
-               console.log(response);
-             }}
-             onReject={(error) => {
-               console.log(error);
-             }}
+                appId="688235963207583"
+                onResolve={(response) => {
+                    console.log(response);
+                }}
+                onReject={(error) => {
+                    console.log(error);
+                }}
             >
-                 <FacebookLoginButton />
+                <FacebookLoginButton />
             </LoginSocialFacebook>
         </div>
     );
